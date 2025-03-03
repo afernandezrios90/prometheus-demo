@@ -5,7 +5,15 @@ Repository for deploying a simple Prometheus installation along with an applicat
 ## Description
 
 This project is a simple Prometheus deployment. Its main purpose is to test basic funcionality, such as practice queries, create metric rules or alert rules, etc.
-"Metric Generator App" is a python application that creates some metrics with random values.
+"Metric Generator App" is a python application that creates some values simulating a real metrics:
+```
+# HELP cpu_usage CPU usage percentage
+# TYPE cpu_usage gauge
+cpu_usage{Datacenter="C1",Server="machine1"} 0.63
+cpu_usage{Datacenter="C2",Server="machine1"} 0.81
+cpu_usage{Datacenter="C1",Server="machine2"} 0.48
+cpu_usage{Datacenter="C2",Server="machine2"} 0.16
+```
 
 The code is ready to be deployed with Docker with no extra configuration. If no further config is done what is expected is:
 - Prometheus instance running on `http://localhost:9090`, collecting data from:
