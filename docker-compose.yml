@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+
+  prometheus:
+    image: prom/prometheus:v3.2.1
+    container_name: prometheus
+    networks:
+      - grafana-network
+    ports:
+      - "9090:9090"
+    volumes:
+      - "${PWD}/config/prometheus.yml:/etc/prometheus/prometheus.yml"  # Config file
+      - "${PWD}/rules:/etc/prometheus/rules"  # Rules directory
+      - "${PWD}/data:/prometheus"  # Data directory
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.enable-lifecycle"  # To reload without restarting the container
+
+  metric_generator:
+    build:
+      context: "${PWD}"
+      dockerfile: Dockerfile
+    container_name: metric_generator
+    ports: 
+      - 8000:8000
+    networks:
+      - grafana-network
+
+networks:
+  grafana-network:
+    external: true # Red ya creada en mi despliegue de Grafana
