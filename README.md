@@ -36,7 +36,7 @@ git clone https://github.com/afernandezrios90/prometheus-demo.git
 	a. Prometheus configuration: Adjust `prometheus.yaml`, `alert_rules.yml` and `recording_rules.yml` as desired. Or even create new files if you want.
 	b. Metric Generator configuration: Adjust `metric_generator.py` to include more metrics, metric types and more value randomness. Imagination is the limit.
 
-5. Run using Docker compose
+5. Run using Docker compose (if you change something in the Metric Generator app after the first deployment make sure to include the `--build` option os that image is rebuilt)
 ```bash
 docker-compose up -d
 ```
