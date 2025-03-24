@@ -30,4 +30,4 @@ services:
 
 networks:
   grafana-network:
-    external: true # Red ya creada en mi despliegue de Grafana
+    external: true # Already existing network in mi Docker ecosystem

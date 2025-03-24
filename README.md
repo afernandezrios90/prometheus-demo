@@ -4,6 +4,11 @@ Repository for deploying a simple Prometheus installation along with an applicat
 
 ## Description
 
+> [!TIP]  
+> You are in the `main` branch. Other active branches with slightly different funcionality are:
+> `standalone` --> Prometheus desployment without metric generating app 
+> `virtual-store` --> Prometheus deployment pre-configured to monitor the Virtual Store app (Please check: https://github.com/afernandezrios90/virtual-store)
+
 This project is a simple Prometheus deployment. Its main purpose is to test basic funcionality, such as practice queries, create metric rules or alert rules, etc.
 "Metric Generator App" is a python application that creates some values simulating a real metrics:
 ```
