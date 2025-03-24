@@ -36,6 +36,7 @@ The code is ready to be deployed with Docker with no extra configuration. If no 
 ```bash
 git clone https://github.com/afernandezrios90/prometheus-demo.git
 ```
+2. Switch to desired branch
 3. Adapt container network
 4. (Optional) Adjust the configuration:
 	a. Prometheus configuration: Adjust `prometheus.yaml`, `alert_rules.yml` and `recording_rules.yml` as desired. Or even create new files if you want.
