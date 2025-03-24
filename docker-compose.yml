@@ -6,7 +6,7 @@ services:
     image: prom/prometheus:v3.2.1
     container_name: prometheus
     networks:
-      - grafana-network
+      - prometheus-network
     ports:
       - "9090:9090"
     volumes:
@@ -17,17 +17,3 @@ services:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"
       - "--web.enable-lifecycle"  # To reload without restarting the container
-
-  metric_generator:
-    build:
-      context: "${PWD}"
-      dockerfile: Dockerfile
-    container_name: metric_generator
-    ports: 
-      - 8000:8000
-    networks:
-      - grafana-network
-
-networks:
-  grafana-network:
-    external: true # Already existing network in mi Docker ecosystem

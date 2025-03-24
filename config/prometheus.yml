@@ -6,9 +6,5 @@ scrape_configs:
     static_configs:
       - targets: ["localhost:9090"]
 
-  - job_name: "metric-generator"
-    static_configs:
-      - targets: ["metric_generator:8000"]
-
 rule_files:
   - "/etc/prometheus/rules/*.yml"
